@@ -1,6 +1,6 @@
 import { Iproducts } from "@/types/interface";
 import Image from "next/image";
-import { FC } from "react";
+import { FC, useState } from "react";
 
 import { IoMdStar } from "react-icons/io";
 import { BiCommentDetail } from "react-icons/bi";
@@ -10,6 +10,8 @@ import { FaCaravan } from "react-icons/fa";
 import { AiOutlineLike } from "react-icons/ai";
 import { PiWarningCircle } from "react-icons/pi";
 import Comments from "./Comments";
+import { useDispatch, useSelector } from "react-redux";
+import { addItem } from "../Redux/CreateReducer/ActionReducer";
 
 const DiscountCard: FC<Iproducts> = ({
   category,
@@ -39,6 +41,17 @@ const DiscountCard: FC<Iproducts> = ({
       name;
       break;
   }
+
+  const state = useSelector((state) => state.counter.cartItems);
+  console.log(state);
+
+  const [stateLength, setstateLenght] = useState<number>(0);
+
+  const dispatch = useDispatch();
+
+  const addHandeler = (id: number, name: string, image: any) => {
+    dispatch(addItem({ id, name, image }));
+  };
 
   return (
     <div className="mt-[9rem] border-[1px] shadow-lg shadow-gray-300 rounded-lg p-3 max-w-[1400px] mx-auto">
@@ -166,7 +179,10 @@ const DiscountCard: FC<Iproducts> = ({
               </p>
             </div>
             <div className="flex justify-center mt-7">
-              <button className="bg-blue-600 w-[260px] p-2 rounded-lg text-white">
+              <button
+                onClick={() => addHandeler(id, name, image)}
+                className="bg-blue-600 w-[260px] p-2 rounded-lg text-white"
+              >
                 افزودن به سبد خرید
               </button>
             </div>

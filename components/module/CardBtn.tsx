@@ -4,14 +4,18 @@ import { FC, useEffect, useState } from "react";
 import { IoSearchOutline } from "react-icons/io5";
 import { FaRegUser } from "react-icons/fa";
 import { CiShoppingBasket } from "react-icons/ci";
-import { CartItem } from "@/types/interface";
 import Shoping from "./Shoping";
 import { useSelector } from "react-redux";
 
 const CardBtn: FC = () => {
   const [open, setOpen] = useState<boolean>(false);
+  const [cartLength, setCartLength] = useState<number>(0);
 
   const state = useSelector((items) => items.counter.cartItems);
+
+  useEffect(() => {
+    setCartLength(state.length);
+  }, [state]);
 
   return (
     <div className="flex gap-3 ml-6">
@@ -28,7 +32,7 @@ const CardBtn: FC = () => {
           />
         </button>
         <div className="absolute top-[-10px] bg-white p-[1px] rounded-full flex flex-col items-center justify-center text-blue-500 font-bold w-[20px] h-[20px] text-[20px]">
-          {/* <span>{state.length}</span> */}
+          {cartLength <= 0 ? <span>0</span> : <span>{cartLength}</span>}
 
           <div
             className={`absolute transition-all duration-300 ease-in  ${

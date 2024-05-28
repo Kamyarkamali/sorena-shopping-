@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -13,9 +13,19 @@ import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 import { TiStar } from "react-icons/ti";
 import Link from "next/link";
 import { shortName } from "@/helpers/heleprFunc";
+import { addItem } from "../Redux/CreateReducer/ActionReducer";
+import { useDispatch, useSelector } from "react-redux";
 
-function BestPrice() {
+const BestPrice: FC = () => {
   const filteredData = products.filter((item) => item.bestprice === true);
+
+  const dispatch = useDispatch();
+
+  const state = useSelector((state) => state.counter.cartItems);
+
+  const handelAddtocart = (item: object) => {
+    dispatch(addItem(item));
+  };
 
   return (
     <div className="mt-[2rem] max-w-[1380px] mx-auto">
@@ -51,7 +61,7 @@ function BestPrice() {
         <div>
           {filteredData?.map((items) => (
             <SwiperSlide className="border-[1px] relative rounded-lg shadow-sm shadow-gray-300 p-5 mt-7 border-gray-200">
-              <div className="flex flex-col items-center justify-center  2xl:flex-row h-[400px]">
+              <div className="flex flex-col items-center justify-center h-[400px]">
                 <Link href={`/Discoutnt/${items.id}`}>
                   <Image
                     className="cursor-grab"
@@ -82,7 +92,10 @@ function BestPrice() {
                 </div>
 
                 <div className="flex justify-center items-center mt-4">
-                  <button className="bg-blue-500 w-[200px] p-2 rounded-lg text-white">
+                  <button
+                    onClick={() => handelAddtocart(items)}
+                    className="bg-blue-500 w-[200px] p-2 rounded-lg text-white"
+                  >
                     خرید محصول
                   </button>
                 </div>
@@ -93,6 +106,6 @@ function BestPrice() {
       </Swiper>
     </div>
   );
-}
+};
 
 export default BestPrice;

@@ -19,8 +19,8 @@ const TopMenu: FC = () => {
       }`}
     >
       <nav
-        className={`flex shadow-md fixed bg-white left-0 right-[-18px] z-[10000] p-5 md:top-[-2.3rem] top-[-2.3rem] ${
-          hamburger && "top-[-10.9rem]"
+        className={`flex shadow-md fixed bg-white left-0 right-[-18px] z-[10000] p-5 xl:top-[-2rem] lg:top-[-2rem] md:top-[-2rem] sm:top-[-2rem] top-[-2.3rem] ${
+          hamburger && "top-[-7.3rem]"
         } justify-between items-center mt-[2rem]`}
       >
         <div className="mr-6 flex items-center gap-5">

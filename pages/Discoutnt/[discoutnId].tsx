@@ -3,23 +3,20 @@ import { products } from "@/data/Localdata";
 import DiscountCard from "@/components/module/DiscountCard";
 
 function ParentComponent() {
-  const {
-    query: { discoutnId },
-  } = useRouter();
+  const router = useRouter();
+  const { discoutnId } = router.query;
 
-  let newProducts = null;
+  let newProduct = null;
 
-  // Check if discoutnId is a string
   if (typeof discoutnId === "string") {
     const productIndex = parseInt(discoutnId, 10) - 1;
 
-    // Check if productIndex is a valid number and within range
     if (
       !isNaN(productIndex) &&
       productIndex >= 0 &&
       productIndex < products.length
     ) {
-      newProducts = products[productIndex];
+      newProduct = products[productIndex];
     } else {
       console.error("Invalid discount ID");
     }
@@ -27,9 +24,13 @@ function ParentComponent() {
     console.error("discountId is not a valid string");
   }
 
+  if (!newProduct) {
+    return <div>محصولی یافت نشد</div>;
+  }
+
   return (
     <div>
-      <DiscountCard {...newProducts} />
+      <DiscountCard {...newProduct} />
     </div>
   );
 }
