@@ -28,7 +28,7 @@ const CardBtn: FC = () => {
           />
         </button>
         <div className="absolute top-[-10px] bg-white p-[1px] rounded-full flex flex-col items-center justify-center text-blue-500 font-bold w-[20px] h-[20px] text-[20px]">
-          <span>{state.length}</span>
+          {/* <span>{state.length}</span> */}
 
           <div
             className={`absolute transition-all duration-300 ease-in  ${

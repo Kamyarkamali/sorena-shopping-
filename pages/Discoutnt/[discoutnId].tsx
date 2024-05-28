@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { products } from "@/data/Localdata";
-import DiscountCard from "@/module/DiscountCard";
+import DiscountCard from "@/components/module/DiscountCard";
 
 function ParentComponent() {
   const {
