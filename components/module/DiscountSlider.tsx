@@ -24,8 +24,6 @@ function DiscountSlider() {
 
   const dispatch = useDispatch();
 
-  const state = useSelector((state) => state.counter.cartItems);
-
   const handelAddtocart = (item: object) => {
     dispatch(addItem(item));
     toast.success(AddToCart.SUCSSESS);
@@ -68,7 +66,10 @@ function DiscountSlider() {
         <div>
           {filteredData?.map((items) => (
             <SwiperSlide className="border-[1px] relative rounded-lg shadow-sm shadow-gray-300 p-5 mt-7 border-gray-200">
-              <div className="flex flex-col items-center justify-center flex-row h-[360px]">
+              <div
+                key={items.id}
+                className="flex flex-col items-center justify-center flex-row h-[360px]"
+              >
                 <Link href={`/Discoutnt/${items.id}`}>
                   <Image
                     className="cursor-grab"

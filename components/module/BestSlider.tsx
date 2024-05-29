@@ -37,7 +37,10 @@ function BestSlider() {
         <Swiper loop={true} autoplay={true} modules={[Autoplay]}>
           {filteredData.map((item) => (
             <SwiperSlide>
-              <div className="flex p-5 lg:flex-row cursor-pointer lg:border-[1px] flex-col rounded-lg border-gray-400 justify-center gap-8 items-center">
+              <div
+                key={item.id}
+                className="flex p-5 lg:flex-row cursor-pointer lg:border-[1px] flex-col rounded-lg border-gray-400 justify-center gap-8 items-center"
+              >
                 <Image
                   src={item.image}
                   alt={item.name}

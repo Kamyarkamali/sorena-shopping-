@@ -10,7 +10,10 @@ const Articles: FC = () => {
       </p>
       <div className="grid xl:grid-cols-4 md:grid-cols-2 grid-cols-1">
         {articles.map((items) => (
-          <div className="border-[1px] border-gray-300 rounded-lg mr-3 mt-4 xl:mt-0">
+          <div
+            key={items.id}
+            className="border-[1px] border-gray-300 rounded-lg mr-3 mt-4 xl:mt-0"
+          >
             <Image
               className="xl:h-[200px] xl:w-[400px] lg:w-[600px] lg:h-[300px] md:h-[200px] sm:h-[300px] w-[800px] rounded-lg"
               src={items.image}

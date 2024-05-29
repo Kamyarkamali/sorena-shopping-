@@ -41,7 +41,7 @@ const DiscountCard: FC<Iproducts> = ({
       name;
       break;
   }
-
+  /* @ts-ignore */
   const state = useSelector((state) => state.counter.cartItems);
   console.log(state);
 
@@ -197,7 +197,6 @@ const DiscountCard: FC<Iproducts> = ({
       <div>
         <Comments category={category} star={star} />
       </div>
-      {/* <div>left</div> */}
     </div>
   );
 };

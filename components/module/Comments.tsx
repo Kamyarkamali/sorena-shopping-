@@ -1,12 +1,12 @@
 import { FC } from "react";
 
-import { Localcomments, products } from "@/data/Localdata";
-import { Iproducts } from "@/types/interface";
+import { Localcomments } from "@/data/Localdata";
+import { Icooments } from "@/types/interface";
 import { AiOutlineLike } from "react-icons/ai";
 import { AiOutlineDislike } from "react-icons/ai";
 import { MdOutlineStar } from "react-icons/md";
 
-const Comments: FC<Iproducts> = ({ category, star }) => {
+const Comments: FC<Icooments> = ({ category, star }) => {
   const fildtered = Localcomments.filter((item) => item.category === category);
 
   return (

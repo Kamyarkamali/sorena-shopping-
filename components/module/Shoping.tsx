@@ -3,7 +3,7 @@ import Image from "next/image";
 import { FC, useEffect, useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../store";
+import { Rootstate } from "../Redux/stores/store";
 
 import {
   setCartItems,
@@ -14,7 +14,7 @@ import {
 
 const Shoping: FC<Iopen> = ({ open, setOpen }) => {
   const [localCartItems, setLocalCartItems] = useState<CartItem[]>([]);
-  const state = useSelector((state: RootState) => state.counter.cartItems);
+  const state = useSelector((state: Rootstate) => state.counter.cartItems);
   const dispatch = useDispatch();
 
   useEffect(() => {

@@ -74,3 +74,8 @@ export interface Iopen {
   open: boolean;
   setOpen: Dispatch<SetStateAction<boolean>>;
 }
+
+export interface Icooments {
+  star: number;
+  category: string;
+}

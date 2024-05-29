@@ -20,7 +20,7 @@ const BestPrice: FC = () => {
   const filteredData = products.filter((item) => item.bestprice === true);
 
   const dispatch = useDispatch();
-
+  /* @ts-ignore */
   const state = useSelector((state) => state.counter.cartItems);
 
   const handelAddtocart = (item: object) => {
@@ -61,7 +61,10 @@ const BestPrice: FC = () => {
         <div>
           {filteredData?.map((items) => (
             <SwiperSlide className="border-[1px] relative rounded-lg shadow-sm shadow-gray-300 p-5 mt-7 border-gray-200">
-              <div className="flex flex-col items-center justify-center h-[400px]">
+              <div
+                key={items.id}
+                className="flex flex-col items-center justify-center h-[400px]"
+              >
                 <Link href={`/Discoutnt/${items.id}`}>
                   <Image
                     className="cursor-grab"

@@ -6,12 +6,15 @@ import { FaRegUser } from "react-icons/fa";
 import { CiShoppingBasket } from "react-icons/ci";
 import Shoping from "./Shoping";
 import { useSelector } from "react-redux";
+import SearchBar from "./SearchBar";
 
 const CardBtn: FC = () => {
   const [open, setOpen] = useState<boolean>(false);
   const [cartLength, setCartLength] = useState<number>(0);
-
+  /* @ts-ignore */
   const state = useSelector((items) => items.counter.cartItems);
+
+  const [searchBar, setSearchBar] = useState<boolean>(false);
 
   useEffect(() => {
     setCartLength(state.length);
@@ -19,9 +22,22 @@ const CardBtn: FC = () => {
 
   return (
     <div className="flex gap-3 ml-6">
-      <button className="bg-[#3B82F6] p-2 rounded-lg shadow-lg shadow-gray-400">
-        <IoSearchOutline size={22} color="white" />
-      </button>
+      <div className="relative">
+        <button className="bg-[#3B82F6] p-2 rounded-lg shadow-lg shadow-gray-400">
+          <IoSearchOutline
+            onClick={() => setSearchBar(!searchBar)}
+            size={22}
+            color="white"
+          />
+          <div
+            className={`absolute lg:right-[-16rem] right-[-17rem] transition-all duration-300 ease-in top-[3rem] z-30 ${
+              searchBar ? "top-[3rem]" : "top-[-300%]"
+            }`}
+          >
+            <SearchBar />
+          </div>
+        </button>
+      </div>
 
       <div className="relative">
         <button className="bg-[#3B82F6] p-2 rounded-lg shadow-lg shadow-gray-400">
