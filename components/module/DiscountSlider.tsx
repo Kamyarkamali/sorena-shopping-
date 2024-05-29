@@ -18,6 +18,7 @@ import Link from "next/link";
 import { shortName } from "@/helpers/heleprFunc";
 import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "../Redux/CreateReducer/ActionReducer";
+import { sp } from "@/replaceNumber";
 
 function DiscountSlider() {
   const filteredData = products.filter((item) => item.discount2 === true);
@@ -99,7 +100,7 @@ function DiscountSlider() {
 
                 <div className="flex items-center gap-3">
                   <del className="opacity-65">{items.discountprice}</del>
-                  <p>{items.price}تومان</p>
+                  <p>{sp(items.price)}تومان</p>
                 </div>
 
                 <div className="flex justify-center items-center mt-4">

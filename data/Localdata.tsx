@@ -86,18 +86,39 @@ import atricle2 from "../public/artiicles/atricle2.jpg";
 import atricle3 from "../public/artiicles/atricle3.jpg";
 import atricle4 from "../public/artiicles/atricle4.jpg";
 
+const scroll1 = () => {
+  window.scrollTo(0, 0);
+};
+
+const scroll2 = () => {
+  window.scrollTo(800, 800);
+};
+
+const scroll3 = () => {
+  window.scrollTo(2300, 2300);
+};
+
+const scroll4 = () => {
+  window.scrollTo(1800, 1800);
+};
+
+const scroll5 = () => {
+  window.scrollTo(3500, 3500);
+};
+
 export const topMenuTitle: Itopmenu[] = [
-  { id: 1, title: "صفحه اصلی", paths: "/" },
+  { id: 1, title: "صفحه اصلی", paths: "/", clickHandeler: scroll1 },
   {
     id: 2,
     icon: <CiShoppingBasket size={22} />,
     title: "فروشگاه",
     icon2: <MdKeyboardArrowDown size={22} />,
     paths: "/",
+    clickHandeler: scroll2,
   },
-  { id: 3, title: "شگفت انگیز", paths: "/" },
-  { id: 4, title: "پرفروش ترین ها", paths: "/" },
-  { id: 5, title: "ارتباط با ما", paths: "/" },
+  { id: 3, title: "شگفت انگیز", paths: "/", clickHandeler: scroll3 },
+  { id: 4, title: "پرفروش ترین ها", paths: "/", clickHandeler: scroll4 },
+  { id: 5, title: "ارتباط با ما", paths: "/", clickHandeler: scroll5 },
   { id: 6, title: "صفحات", icon2: <MdKeyboardArrowDown />, paths: "/" },
 ];
 

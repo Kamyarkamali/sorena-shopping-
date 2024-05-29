@@ -10,6 +10,7 @@ export interface Itopmenu {
   icon?: React.ReactNode;
   icon2?: React.ReactNode;
   paths: string;
+  clickHandeler?: any;
 }
 
 export interface IsatateOpen {

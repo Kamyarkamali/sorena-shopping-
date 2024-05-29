@@ -3,7 +3,7 @@ import { FC } from "react";
 
 const Hero: FC = () => {
   return (
-    <div className="mt-[3rem] max-w-[1500px] mx-auto">
+    <div className="mt-[-8rem] max-w-[1500px] mx-auto">
       <div className="flex lg:flex-row flex-col items-center justify-center gap-5 ">
         <Image
           className="rounded-lg lg:w-[490px] xl:w-[690px] sm:w-[600px] w-[450px] object-cover"

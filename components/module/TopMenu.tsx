@@ -19,9 +19,9 @@ const TopMenu: FC = () => {
       }`}
     >
       <nav
-        className={`flex shadow-md fixed bg-white left-0 right-[-18px] z-[10000] p-5 xl:top-[-2rem] lg:top-[-2rem] md:top-[-2rem] sm:top-[-2rem] top-[-2.3rem] ${
-          hamburger && "top-[-7.3rem]"
-        } justify-between items-center mt-[2rem]`}
+        className={`flex shadow-md fixed bg-white left-0 right-[-18px] z-[10000] p-5 xl:top-[-0.3rem] lg:top-[-0.3rem] md:top-[-0.6rem] sm:top-[-0.3rem] top-[-0.3rem] ${
+          hamburger && "top-[-5.3rem]"
+        } justify-between items-center`}
       >
         <div className="mr-6 flex items-center gap-5">
           {/* icon hamburgeer menu */}
@@ -35,7 +35,7 @@ const TopMenu: FC = () => {
               className={`absolute z-[14000] transition-all duration-300 ease-linear lg:hidden ${
                 hamburger
                   ? "right-[-25px] top-[-2.3rem]"
-                  : "right-[-1200%] top-[-2.3rem]"
+                  : "right-[-1200%] top-[-2.3rem] "
               }`}
             >
               <HamburgerMenu

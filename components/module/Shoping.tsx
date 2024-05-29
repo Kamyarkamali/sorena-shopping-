@@ -11,11 +11,17 @@ import {
   decreaseQuantity,
   removeItem,
 } from "../Redux/CreateReducer/ActionReducer";
+import { sp } from "@/replaceNumber";
 
 const Shoping: FC<Iopen> = ({ open, setOpen }) => {
   const [localCartItems, setLocalCartItems] = useState<CartItem[]>([]);
+
+  const [totla, settotal] = useState<number>(0);
+
   const state = useSelector((state: Rootstate) => state.counter.cartItems);
   const dispatch = useDispatch();
+
+  const state2 = useSelector((item: Rootstate) => item.counter.totalPrice);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -30,7 +36,8 @@ const Shoping: FC<Iopen> = ({ open, setOpen }) => {
 
   useEffect(() => {
     setLocalCartItems(state);
-  }, [state]);
+    settotal(state2);
+  }, [state, state2]);
 
   const handleIncreaseQuantity = (id: number) => {
     dispatch(increaseQuantity({ id }));
@@ -93,6 +100,10 @@ const Shoping: FC<Iopen> = ({ open, setOpen }) => {
               </div>
             </div>
           ))}
+          <div className="flex flex-col border-[1px] p-1 text-orange-600 rounded-lg border-red-600 items-center">
+            <p>مجموع قیمت ها</p>
+            <span>{sp(totla ? totla : 0)}</span>
+          </div>
         </div>
       )}
     </div>

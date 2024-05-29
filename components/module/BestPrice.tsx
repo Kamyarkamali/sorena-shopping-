@@ -15,6 +15,7 @@ import Link from "next/link";
 import { shortName } from "@/helpers/heleprFunc";
 import { addItem } from "../Redux/CreateReducer/ActionReducer";
 import { useDispatch, useSelector } from "react-redux";
+import { sp } from "@/replaceNumber";
 
 const BestPrice: FC = () => {
   const filteredData = products.filter((item) => item.bestprice === true);
@@ -91,7 +92,7 @@ const BestPrice: FC = () => {
 
                 <div className="flex items-center gap-3">
                   <del className="opacity-65">{items.discountprice}</del>
-                  <p>{items.price}تومان</p>
+                  <p>{sp(items.price)}تومان</p>
                 </div>
 
                 <div className="flex justify-center items-center mt-4">

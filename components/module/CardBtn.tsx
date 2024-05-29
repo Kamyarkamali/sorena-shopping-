@@ -25,17 +25,23 @@ const CardBtn: FC = () => {
       <div className="relative">
         <button className="bg-[#3B82F6] p-2 rounded-lg shadow-lg shadow-gray-400">
           <IoSearchOutline
-            onClick={() => setSearchBar(!searchBar)}
+            onClick={() => setSearchBar((prev) => !prev)}
             size={22}
             color="white"
           />
-          <div
-            className={`absolute lg:right-[-16rem] right-[-17rem] transition-all duration-300 ease-in top-[3rem] z-30 ${
-              searchBar ? "top-[3rem]" : "top-[-300%]"
-            }`}
-          >
-            <SearchBar />
-          </div>
+          {searchBar ? (
+            <div
+              className={`absolute  lg:right-[-16rem] right-[-17rem] transition-all duration-300 ease-in top-[3rem] z-30`}
+            >
+              <SearchBar />
+            </div>
+          ) : (
+            <div
+              className={`absolute  lg:right-[-16rem] right-[-17rem] transition-all duration-300 ease-in top-[-10rem] z-30`}
+            >
+              <SearchBar />
+            </div>
+          )}
         </button>
       </div>
 
